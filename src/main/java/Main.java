@@ -1,9 +1,8 @@
-import br.com.dio.desafio.dominio.Curso;
-import br.com.dio.desafio.dominio.Mentoria;
+import br.com.dio.desafio.dominio.*;
 
 import java.time.LocalDate;
 
-public class Main {
+public class Main{
 
     public static void main(String[] args){
 
@@ -28,10 +27,43 @@ public class Main {
         mentoria2.setData(LocalDate.of(2023,9,11));
 
 
-        System.out.println(curso1);
-        System.out.println(curso2);
-        System.out.println(mentoria1);
-        System.out.println(mentoria2);
+        Bootcamp bootcampJava = new Bootcamp();
+        bootcampJava.setNome("Bootcamp Java");
+        bootcampJava.setDescricao("Descrição do Bootcamp Java");
+        bootcampJava.setConteudos(curso1);
+        bootcampJava.setConteudos(mentoria1);
+
+
+        Bootcamp bootcampMySQL = new Bootcamp();
+        bootcampMySQL.setNome("Bootcamp MySQL");
+        bootcampMySQL.setDescricao("Descrição do Bootcamp MySQL");
+        bootcampMySQL.setConteudos(curso2);
+        bootcampMySQL.setConteudos(mentoria2);
+
+        System.out.println(bootcampJava);
+        System.out.println(bootcampMySQL);
+
+        Dev dev1 = new Dev();
+        dev1.setNome("Rafael");
+        dev1.inscreverBootcamp(bootcampJava);
+        System.out.println(dev1);
+        dev1.progredir(mentoria2);
+        dev1.progredir(curso1);
+        System.out.println(dev1);
+        dev1.calcularTotalXp();
+
+        Dev dev2 = new Dev();
+        dev2.setNome("Maria");
+        dev2.inscreverBootcamp(bootcampMySQL);
+        System.out.println(dev2);
+        dev2.progredir(curso2);
+        dev2.progredir(mentoria2);
+        System.out.println(dev2);
+        dev2.calcularTotalXp();
+
+
+        System.out.println(bootcampJava);
+        System.out.println(bootcampMySQL);
 
 
 
